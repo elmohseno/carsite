@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0d12" />
+    <title>تماس با ما · موتورهای اوروم</title>
+    <meta name="description" content="با موتورهای اوروم تماس بگیرید. ما اینجا هستیم تا در تراکنش‌های امن و شفاف خودرو به شما کمک کنیم." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Floating Glass Nav -->
+    <header class="site-header">
+      <nav class="glass-nav container">
+        <a class="brand" href="index.html">اوروم خودرو</a>
+        <ul class="nav-links">
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="process.html">فرآیند قانونی</a></li>
+          <li><a href="about.html">درباره ما</a></li>
+          <li><a href="contact.html">تماس با ما</a></li>
+          <li><a href="documents.html">اسناد</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container page">
+      <header class="page-header">
+        <h1 class="page-title">با ما تماس بگیرید</h1>
+        <p class="page-intro">ما اینجا هستیم تا به هر سوالی که ممکن است داشته باشید پاسخ دهیم. با ما تماس بگیرید و ما در اسرع وقت پاسخ خواهیم داد.</p>
+      </header>
+
+      <section class="contact-grid glass-panel">
+        <!-- Left: Info -->
+        <div class="contact-info">
+          <ul class="contact-list">
+            <li>
+              <span class="c-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5a2 2 0 0 1 2-2h2.1a1 1 0 0 1 .98.804l.4 2A1 1 0 0 1 8.5 7.1l-1.2.6a12.1 12.1 0 0 0 4.9 4.9l.6-1.2a1 1 0 0 1 1.296-.52l2 .8a1 1 0 0 1 .604.98V15a2 2 0 0 1-2 2h-1C9.03 17 7 14.97 7 12V11a6 6 0 0 1 0-.001V9a2 2 0 0 0-2-2H5a2 2 0 0 1-2-2Z" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <strong>تلفن</strong>
+                <p>[شماره تلفن شما اینجا]</p>
+              </div>
+            </li>
+            <li>
+              <span class="c-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v12H4V6Zm0 0l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <strong>ایمیل</strong>
+                <p>[آدرس ایمیل شما اینجا]</p>
+              </div>
+            </li>
+            <li>
+              <span class="c-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <strong>ساعات کاری</strong>
+                <p>شنبه تا پنج‌شنبه: ۹:۰۰ صبح تا ۶:۰۰ عصر</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- NEW: 3D Model Viewer -->
+          <div class="model-viewer-container">
+            <canvas id="car-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form">
+          <h2>پیام بفرستید</h2>
+          <form action="#" method="post" class="form">
+            <div class="form-grid">
+              <label class="field">
+                <span>نام و نام خانوادگی</span>
+                <input type="text" name="name" placeholder="علی احمدی" required />
+              </label>
+              <label class="field">
+                <span>آدرس ایمیل</span>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label class="field">
+              <span>موضوع</span>
+              <input type="text" name="subject" placeholder="چگونه می‌توانیم کمک کنیم؟" required />
+            </label>
+            <label class="field">
+              <span>پیام شما</span>
+              <textarea name="message" rows="6" placeholder="پیام خود را بنویسید..." required></textarea>
+            </label>
+            <div class="actions">
+              <button type="submit" class="cta">ارسال پیام</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <p>© <span id="year"></span> موتورهای اوروم. تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <-- Scripts for 3D model -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="3d-model.js"></script>
+
+    <script src="js/script.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

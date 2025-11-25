@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اسناد · موتورهای اوروم</title>
+    <meta name="description" content="مشاهده اسناد و مدارک قانونی مرتبط با فرآیندهای ما." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="page-wrapper">
+        <header class="site-header">
+            <nav class="glass-nav container">
+                <a class="brand" href="index.html">اوروم خودرو</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="process.html">فرآیند قانونی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                    <li><a href="#">اسناد</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main" class="container page" tabindex="-1">
+            <header class="page-header">
+                <h1 class="page-title">اسناد و مدارک قانونی</h1>
+                <p class="page-intro">برای شفافیت کامل، نمونه اسنادی که در فرآیند خرید و فروش استفاده می‌شوند در اینجا قابل مشاهده است. برای مشاهده هر سند در اندازه کامل، روی تصویر آن کلیک کنید.</p>
+            </header>
+
+            <div class="docs-grid">
+                <!-- Document Card 1: Sales Agreement -->
+                <div class="doc-card glass-panel">
+                    <div class="doc-head">
+                        <h2>نمونه مبایعه‌نامه</h2>
+                        <p>این سند استاندارد برای ثبت توافقات اولیه بین خریدار و فروشنده استفاده می‌شود.</p>
+                    </div>
+                    <div class="doc-thumbnails">
+                        <a href="img/docs/mobaienameh-1.png" class="doc-thumb-link">
+                            <img src="img/docs/mobaienameh-1.png" alt="صفحه اول مبایعه‌نامه">
+                        </a>
+                        <a href="img/docs/mobaienameh-2.png" class="doc-thumb-link">
+                            <img src="img/docs/mobaienameh-2.png" alt="صفحه دوم مبایعه‌نامه">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Document Card 2: Power of Attorney -->
+                <div class="doc-card glass-panel">
+                    <div class="doc-head">
+                        <h2>نمونه وکالت‌نامه مالی</h2>
+                        <p>این وکالت‌نامه به نماینده قانونی اجازه می‌دهد تا امور مالی مربوط به معامله را پیگیری کند.</p>
+                    </div>
+                    <div class="doc-thumbnails">
+                        <a href="img/docs/vekalatnameh-1.jpg" class="doc-thumb-link">
+                            <img src="img/docs/vekalatnameh-1.jpg" alt="صفحه اول وکالت‌نامه">
+                        </a>
+                        <a href="img/docs/vekalatnameh-2.jpg" class="doc-thumb-link">
+                            <img src="img/docs/vekalatnameh-2.jpg" alt="صفحه دوم وکالت‌نامه">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Document Card 3: Financial Declaration -->
+                <div class="doc-card glass-panel full-width">
+                    <div class="doc-head">
+                        <h2>نمونه اقرارنامه مالی</h2>
+                        <p>سند رسمی که در آن طرفین به تعهدات و شرایط مالی معامله اقرار می‌کنند.</p>
+                    </div>
+                    <div class="doc-thumbnails">
+                        <a href="img/docs/eghrarnameh.jpg" class="doc-thumb-link">
+                            <img src="img/docs/eghrarnameh.jpg" alt="سند اقرارنامه مالی">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer container">
+            <p>© <span id="year"></span> موتورهای اوروم. تمامی حقوق محفوظ است.</p>
+        </footer>
+    </div>
+
+    <!-- Lightbox Modal HTML -->
+    <div class="lightbox-overlay" id="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close" title="بستن">&times;</button>
+        <img src="" class="lightbox-image" id="lightbox-image" alt="نمایش سند">
+        
+        <!-- Zoom Slider Controls with Icons -->
+        <div class="zoom-controls glass-panel">
+            <svg class="zoom-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg>
+            <input type="range" id="zoom-slider" min="1" max="4" step="0.1" value="1" title="کنترل بزرگ‌نمایی">
+            <svg class="zoom-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9h-1V7h-1v2H7v1h2v2h1v-2h2V9z"/></svg>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="js/doc-viewer.js"></script>
+</body>
+</html>
