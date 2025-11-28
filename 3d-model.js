@@ -35,29 +35,35 @@ if (canvas) {
     controls.autoRotateSpeed = 1.0; // Slow, steady rotation
 
     // Load Model
-const loader = new GLTFLoader();
-loader.load(
-    'assets/models/car.glb', 
-    (gltf) => {
-        const model = gltf.scene;
-        
-        // --- Auto-scaling and centering logic ---
-        const box = new THREE.Box3().setFromObject(model);
-        const size = box.getSize(new THREE.Vector3()).length();
-        const center = box.getCenter(new THREE.Vector3());
-        
-        model.position.sub(center); // Center the model at the origin
-        
-        const scaleFactor = 5.5 / size; // Adjust to make the model bigger or smaller
-        model.scale.set(scaleFactor, scaleFactor, scaleFactor);
-        
-        scene.add(model);
-    },
-    undefined,
-    (error) => {
-        console.error('An error happened while loading the model:', error);
-    }
-);
+    const loader = new GLTFLoader();
+    loader.load(
+        'assets/models/car.glb', 
+        (gltf) => {
+            const model = gltf.scene;
+            
+            // --- Auto-scaling and centering logic ---
+            const box = new THREE.Box3().setFromObject(model);
+            const size = box.getSize(new THREE.Vector3()).length();
+            const center = box.getCenter(new THREE.Vector3());
+            
+            model.position.sub(center); // Center the model at the origin
+            
+            // NEW: Check if mobile to adjust scale
+            const isMobile = window.innerWidth < 768;
+            
+            // If mobile, use 4.0, otherwise use 5.5
+            const desiredScale = isMobile ? 4.0 : 5.5;
+            
+            const scaleFactor = desiredScale / size; 
+            model.scale.set(scaleFactor, scaleFactor, scaleFactor);
+            
+            scene.add(model);
+        },
+        undefined,
+        (error) => {
+            console.error('An error happened while loading the model:', error);
+        }
+    );
 
     // Animation Loop
     const animate = () => {

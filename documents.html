@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>اسناد · موتورهای اوروم</title>
     <meta name="description" content="مشاهده اسناد و مدارک قانونی مرتبط با فرآیندهای ما." />
+    <!-- Google Fonts (Matching other pages) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -19,6 +24,13 @@
                     <li><a href="contact.html">تماس با ما</a></li>
                     <li><a href="#">اسناد</a></li>
                 </ul>
+
+                <!-- Hamburger Menu Icon -->
+                <div class="hamburger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
             </nav>
         </header>
 
@@ -94,8 +106,14 @@
         </div>
     </div>
 
+    <!-- Main Script for Hamburger Menu -->
+    <script src="js/script.js"></script>
+    
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Fallback for year if script.js fails
+        if(document.getElementById('year')) {
+             document.getElementById('year').textContent = new Date().getFullYear();
+        }
     </script>
     <script src="js/doc-viewer.js"></script>
 </body>
