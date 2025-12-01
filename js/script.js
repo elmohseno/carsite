@@ -1,16 +1,38 @@
 /* Initialize site */
 console.log("Website initialized successfully!");
 
-/*
-  Parallax Tilt Effect for Feature Cards
-  This script adds a 3D hover effect to elements with the class 'feature-card'.
-*/
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Tilt Effect Logic ---
+    
+    // --- Hamburger Menu & Overlay Functionality ---
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector(".nav-links-mobile");
+    const menuOverlay = document.querySelector(".menu-overlay");
+
+    if (hamburger && mobileMenu && menuOverlay) {
+        const toggleMenu = () => {
+            hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+            menuOverlay.classList.toggle("active");
+        };
+
+        const closeMenu = () => {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+        };
+
+        hamburger.addEventListener("click", toggleMenu);
+        menuOverlay.addEventListener("click", closeMenu);
+        
+        document.querySelectorAll(".nav-links-mobile li a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+    }
+
+    // --- Parallax Tilt Effect for Feature Cards ---
     const cards = document.querySelectorAll('.feature-card');
 
     cards.forEach(card => {
-        // Add a wrapper for the glare effect
         const glare = document.createElement('div');
         glare.classList.add('glare');
         card.appendChild(glare);
@@ -19,75 +41,42 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
             const deltaX = x - centerX;
             const deltaY = y - centerY;
-
-            // Adjust this value to change the tilt intensity
-            const tiltIntensity = 15; // Higher value = more tilt
-
+            const tiltIntensity = 15;
             const rotateX = (deltaY / centerY) * -tiltIntensity;
             const rotateY = (deltaX / centerX) * tiltIntensity;
 
-            // Apply the 3D transform
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            
-            // Update glare position
             glare.style.transform = `translate(${x - 150}px, ${y - 150}px)`;
             glare.style.opacity = '1';
         });
 
         card.addEventListener('mouseleave', () => {
-            // Reset transform and glare on mouse leave
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
             glare.style.opacity = '0';
         });
     });
 
-    // --- Interactive Spotlight Logic ---
-    var widget = document.getElementById('trustWidget');
+    // --- Interactive Spotlight Logic for Trust Widget ---
+    const widget = document.getElementById('trustWidget');
     if (widget) {
-        var rect;
+        let rect;
         function updateVars(e) {
             if (!rect) rect = widget.getBoundingClientRect();
-            var x = ((e.clientX - rect.left) / rect.width) * 100;
-            var y = ((e.clientY - rect.top) / rect.height) * 100;
+            let x = ((e.clientX - rect.left) / rect.width) * 100;
+            let y = ((e.clientY - rect.top) / rect.height) * 100;
             widget.style.setProperty('--mx', x + '%');
             widget.style.setProperty('--my', y + '%');
         }
         widget.addEventListener('mousemove', updateVars);
-        widget.addEventListener('mouseenter', function(){ rect = widget.getBoundingClientRect(); });
+        widget.addEventListener('mouseenter', () => { rect = widget.getBoundingClientRect(); });
     }
-});
 
-/*
-  Initialize other site scripts if any.
-*/
-// Set the copyright year (if not already set in HTML)
-if (document.getElementById('year')) {
-    document.getElementById('year').textContent = new Date().getFullYear();
-}
-
-
-/*
-  Hamburger Menu Functionality
-  This script handles the opening and closing of the mobile navigation.
-*/
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navLinks.classList.toggle("active");
-});
-
-// Optional: Close menu when a link is clicked
-document.querySelectorAll(".nav-links li a").forEach(link => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navLinks.classList.remove("active");
-  });
+    // --- Set Copyright Year ---
+    if (document.getElementById('year')) {
+        document.getElementById('year').textContent = new Date().getFullYear();
+    }
 });
